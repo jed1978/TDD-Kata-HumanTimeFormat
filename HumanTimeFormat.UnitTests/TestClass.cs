@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 namespace HumanTimeFormat.UnitTests
 {
     [TestFixture]
-    public class TestClass
+    public class HumanTimeFormatTests
     {
-        [Test]
-        public void TestMethod()
-        {
-            // TODO: Add your test code here
-            Assert.Pass("Your first passing test");
-        }
+        
     }
 }
