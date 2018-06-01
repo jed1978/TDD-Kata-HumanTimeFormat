@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanTimeFormat", "HumanTimeFormat\HumanTimeFormat.csproj", "{F47E9933-85E7-4A43-879A-F55946FD3985}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanTimeFormat", "HumanTimeFormat\HumanTimeFormat.csproj", "{5B848B5C-8E77-486E-9F1A-DB9A077BC173}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanTimeFormat.UnitTests", "HumanTimeFormat.UnitTests\HumanTimeFormat.UnitTests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F47E9933-85E7-4A43-879A-F55946FD3985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F47E9933-85E7-4A43-879A-F55946FD3985}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F47E9933-85E7-4A43-879A-F55946FD3985}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F47E9933-85E7-4A43-879A-F55946FD3985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B848B5C-8E77-486E-9F1A-DB9A077BC173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B848B5C-8E77-486E-9F1A-DB9A077BC173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B848B5C-8E77-486E-9F1A-DB9A077BC173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B848B5C-8E77-486E-9F1A-DB9A077BC173}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C9B02129-3847-4408-9B19-92D48E6A328A}
+		SolutionGuid = {E2A74F9C-99E5-4F07-8171-EBDF0CBFE677}
 	EndGlobalSection
 EndGlobal
