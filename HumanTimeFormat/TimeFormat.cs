@@ -21,7 +21,7 @@ namespace HumanTimeFormat
             {
                 if (second == 0)
                 {
-                    format = "1 minute";
+                    format = $"{minute} minute";
                 }
                 else
                 {
@@ -45,17 +45,14 @@ namespace HumanTimeFormat
 
         private string FormatSeconds(int s)
         {
-            string formatDuration;
-            if (s == 1)
-            {
-                formatDuration = "1 second";
-            }
-            else
-            {
-                formatDuration = $"{s} seconds";
-            }
+            var format = $"{s} second";
+            return FormatPlural(s, format);
+        }
 
-            return formatDuration;
+        private static string FormatPlural(int s, string format)
+        {
+            if (s > 1) format = $"{format}s";
+            return format;
         }
     }
 }
