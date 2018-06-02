@@ -33,6 +33,7 @@ namespace HumanTimeFormat
             if (day <= 364 && day >= 1)
             {
                 hour = hour % 24;
+                if (format != "") format += ", ";
                 format += ProcessTimeFormat(day, "day");
             }
 
