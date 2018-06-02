@@ -28,6 +28,17 @@ namespace HumanTimeFormat
                     format = $"{minute} minute and {FormatSeconds(second)}";
                 }
             }
+            else if (minute <= 59 && minute >= 2)
+            {
+                if (second == 0)
+                {
+                    format = $"{minute} minutes";
+                }
+                else
+                {
+                    format = $"{minute} minutes and {FormatSeconds(second)}";
+                }
+            }
 
             return format;
         }
