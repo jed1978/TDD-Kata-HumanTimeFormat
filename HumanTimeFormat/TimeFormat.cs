@@ -6,14 +6,26 @@ namespace HumanTimeFormat
     {
         public string FormatDuration(int s)
         {
-            if (s == 1)
-                return "1 second";
-            if (s <= 59 && s >= 2)
-                return $"{s} seconds";
-            if (s == 60)
-                return "1 minute";
+            if (s <= 0) return "now";
 
-            return "now";
+            var formatDuration = "";
+
+            if (s <= 59 && s >= 1)
+            {
+                if (s == 1)
+                {
+                    formatDuration = "1 second";
+                }
+                else
+                {
+                    formatDuration = $"{s} seconds";
+                }
+            }
+
+            if (s == 60)
+                formatDuration = "1 minute";
+
+            return formatDuration;
         }
     }
 }
