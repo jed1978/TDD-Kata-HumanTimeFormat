@@ -31,5 +31,12 @@ namespace HumanTimeFormat.UnitTests
             var expected = "1 second";            
             _timeFormat.FormatDuration(1).ShouldBeEqualTo(expected);
         }
+
+        [Test]
+        public void Test_2_second_Return_2_seconds()
+        {
+            var expected = "2 seconds";            
+            _timeFormat.FormatDuration(2).ShouldBeEqualTo(expected);
+        }
     }
 }
