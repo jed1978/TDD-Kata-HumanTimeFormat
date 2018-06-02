@@ -30,7 +30,16 @@ namespace HumanTimeFormat
                 {
                     var second = s % 60;
                     var minute = s / 60;
-                    formatDuration = $"{minute} minute and {second} second";
+                    string secFormat;
+                    if (second == 1)
+                    {
+                        secFormat = "1 second";
+                    }
+                    else
+                    {
+                        secFormat = $"{second} seconds";
+                    }
+                    formatDuration = $"{minute} minute and {secFormat}";
                 }
             }
 
