@@ -11,13 +11,18 @@ namespace HumanTimeFormat
             {
                 return ProcessTimeFormat(s, "second");
             }
-
-            var format = "";
+           
             var second = s % 60;
             var minute = s / 60;
             var hour = minute / 60;
             var day = hour / 24;
-            
+
+            return Format(day, hour, minute, second);
+        }
+
+        private static string Format(int day, int hour, int minute, int second)
+        {
+            string format = "";
             if (day <= 364 && day >= 1)
             {
                 hour = hour % 24;
