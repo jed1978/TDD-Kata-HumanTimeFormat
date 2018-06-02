@@ -11,10 +11,19 @@ namespace HumanTimeFormat
             {
                 return FormatSeconds(s);
             }
-            
+
             var format = "";
             var second = s % 60;
             var minute = s / 60;
+            var hour = minute / 60;
+            if (hour >= 1)
+            {
+                minute = minute % 60;
+                second = minute % 60;
+
+                format = $"{hour} hour";
+                format = FormatPlural(hour, format);
+            }
 
             if (minute <= 59 && minute >= 1)
             {
