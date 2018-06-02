@@ -10,22 +10,26 @@ namespace HumanTimeFormat.UnitTests
     [TestFixture]
     public class TimeFormatTests
     {
+        private TimeFormat _timeFormat;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _timeFormat = new TimeFormat();
+        }
+
         [Test]
         public void Test_0_second_Return_now()
         {
             var expected = "now";
-            var timeFormat = new TimeFormat();
-            var actual = timeFormat.FormatDuration(0);
-            actual.ShouldBeEqualTo(expected);
+            _timeFormat.FormatDuration(0).ShouldBeEqualTo(expected);
         }
 
         [Test]
         public void Test_1_second_Return_1_second()
         {
-            var expected = "1 second";
-            var timeFormat = new TimeFormat();
-            var actual = timeFormat.FormatDuration(1);
-            actual.ShouldBeEqualTo(expected);
+            var expected = "1 second";            
+            _timeFormat.FormatDuration(1).ShouldBeEqualTo(expected);
         }
     }
 }
