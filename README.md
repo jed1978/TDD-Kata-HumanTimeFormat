@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+[![Build status](https://ci.appveyor.com/api/projects/status/qo75svh5dnl7dlu1?svg=true)](https://ci.appveyor.com/project/jed1978/tdd-kata-humantimeformat)
 # TDD-Kata-HumanTimeFormat
 
 Your task in order to complete this Kata is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.
