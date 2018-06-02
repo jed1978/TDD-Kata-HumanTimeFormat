@@ -7,37 +7,24 @@ namespace HumanTimeFormat
         public string FormatDuration(int s)
         {
             if (s <= 0) return "now";
-
+            if (s <= 59 && s >= 1)
+            {
+                return FormatSeconds(s);
+            }
+            
             var format = "";
             var second = s % 60;
             var minute = s / 60;
 
-            if (s <= 59 && s >= 1)
+            if (minute <= 59 && minute >= 1)
             {
-                format = FormatSeconds(s);
+                format = $"{minute} minute";
+                format = FormatPlural(minute, format);
             }
 
-            if (minute == 1)
+            if (second > 0)
             {
-                if (second == 0)
-                {
-                    format = $"{minute} minute";
-                }
-                else
-                {
-                    format = $"{minute} minute and {FormatSeconds(second)}";
-                }
-            }
-            else if (minute <= 59 && minute >= 2)
-            {
-                if (second == 0)
-                {
-                    format = $"{minute} minutes";
-                }
-                else
-                {
-                    format = $"{minute} minutes and {FormatSeconds(second)}";
-                }
+                format = format + " and " + FormatSeconds(second);
             }
 
             return format;
