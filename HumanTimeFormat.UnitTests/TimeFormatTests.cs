@@ -80,5 +80,12 @@ namespace HumanTimeFormat.UnitTests
             var expected = "2 hours and 1 second";
             _timeFormat.FormatDuration(7201).ShouldBeEqualTo(expected);
         }
+
+        [Test]
+        public void Test_7321_second_Return_2_hours_2_minutes_and_1_second()
+        {
+            var expected = "2 hours, 2 minutes and 1 second";
+            _timeFormat.FormatDuration(7321).ShouldBeEqualTo(expected);
+        }
     }
 }

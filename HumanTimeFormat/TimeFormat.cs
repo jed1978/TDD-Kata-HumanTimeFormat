@@ -19,26 +19,18 @@ namespace HumanTimeFormat
             if (hour >= 1)
             {
                 minute = minute % 60;
-                if (minute == 0)
-                {
-                    second = s % (60 * 60);
-                }
-                else
-                {
-                    second = minute % 60;
-                }
-
-                format = ProcessTimeFormat(hour, "hour");
+                format += ProcessTimeFormat(hour, "hour");
             }
 
             if (minute <= 59 && minute >= 1)
             {
-                format = ProcessTimeFormat(minute, "minute");
+                if (format != "") format += ", ";
+                format += ProcessTimeFormat(minute, "minute");
             }
 
             if (second > 0)
             {
-                format = format + " and " + ProcessTimeFormat(second, "second");
+                format += " and " + ProcessTimeFormat(second, "second");
             }
 
             return format;
