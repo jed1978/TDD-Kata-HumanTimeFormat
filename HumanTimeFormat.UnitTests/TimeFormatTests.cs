@@ -46,7 +46,7 @@ namespace HumanTimeFormat.UnitTests
             _timeFormat.FormatDuration(60).ShouldBeEqualTo(expected);
         }
 
-        [Test, Ignore("Refactoring")]
+        [Test]
         public void Test_61_second_Return_1_minute_and_1_second()
         {
             var expected = "1 minute and 1 second";

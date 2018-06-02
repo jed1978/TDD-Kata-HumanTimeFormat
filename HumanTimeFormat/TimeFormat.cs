@@ -22,8 +22,17 @@ namespace HumanTimeFormat
                 }
             }
 
-            if (s == 60)
-                formatDuration = "1 minute";
+            if (s <= 360 && s >= 60)
+            {
+                if (s == 60)
+                    formatDuration = "1 minute";
+                else
+                {
+                    var second = s % 60;
+                    var minute = s / 60;
+                    formatDuration = $"{minute} minute and {second} second";
+                }
+            }
 
             return formatDuration;
         }
