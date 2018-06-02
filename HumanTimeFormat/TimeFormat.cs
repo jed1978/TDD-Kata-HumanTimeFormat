@@ -16,13 +16,20 @@ namespace HumanTimeFormat
             var minute = s / 60;
             var hour = minute / 60;
             var day = hour / 24;
+            var year = day / 365;
 
-            return Format(day, hour, minute, second);
+            return Format(year, day, hour, minute, second);
         }
 
-        private static string Format(int day, int hour, int minute, int second)
+        private static string Format(int year, int day, int hour, int minute, int second)
         {
             string format = "";
+            if (year > 0)
+            {
+                day = day % 365;
+                format += ProcessTimeFormat(year, "year");
+            }
+
             if (day <= 364 && day >= 1)
             {
                 hour = hour % 24;

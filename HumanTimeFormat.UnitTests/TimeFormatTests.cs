@@ -101,5 +101,12 @@ namespace HumanTimeFormat.UnitTests
             var expected = "1 day, 23 hours, 59 minutes and 59 seconds";
             _timeFormat.FormatDuration(172799).ShouldBeEqualTo(expected);
         }
+
+        [Test]
+        public void Test_31536000_second_Return_1_year()
+        {
+            var expected = "1 year";
+            _timeFormat.FormatDuration(31536000).ShouldBeEqualTo(expected);
+        }
     }
 }
