@@ -28,15 +28,22 @@ namespace HumanTimeFormat.UnitTests
         [Test]
         public void Test_1_second_Return_1_second()
         {
-            var expected = "1 second";            
+            var expected = "1 second";
             _timeFormat.FormatDuration(1).ShouldBeEqualTo(expected);
         }
 
         [Test]
         public void Test_2_second_Return_2_seconds()
         {
-            var expected = "2 seconds";            
+            var expected = "2 seconds";
             _timeFormat.FormatDuration(2).ShouldBeEqualTo(expected);
+        }
+
+        [Test]
+        public void Test_60_second_Return_1_minute()
+        {
+            var expected = "1 minute";
+            _timeFormat.FormatDuration(60).ShouldBeEqualTo(expected);
         }
     }
 }

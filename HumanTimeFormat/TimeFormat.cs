@@ -8,8 +8,10 @@ namespace HumanTimeFormat
         {
             if (s == 1)
                 return "1 second";
-            if (s >= 2)
+            if (s <= 59 && s >= 2)
                 return $"{s} seconds";
+            if (s == 60)
+                return "1 minute";
 
             return "now";
         }
