@@ -21,8 +21,7 @@ namespace HumanTimeFormat
                 minute = minute % 60;
                 second = minute % 60;
 
-                format = $"{hour} hour";
-                format = FormatPlural(hour, format);
+                format = ProcessTimeFormat(hour, "hour");
             }
 
             if (minute <= 59 && minute >= 1)
@@ -37,6 +36,11 @@ namespace HumanTimeFormat
             }
 
             return format;
+        }
+
+        private static string ProcessTimeFormat(int hour, string timeUnit)
+        {
+            return FormatPlural(hour, $"{hour} {timeUnit}");
         }
 
         private string FormatSeconds(int s)
