@@ -8,39 +8,40 @@ namespace HumanTimeFormat
         {
             if (s <= 0) return "now";
 
-            var formatDuration = "";
+            var format = "";
+            var second = s % 60;
+            var minute = s / 60;
 
             if (s <= 59 && s >= 1)
             {
-                if (s == 1)
+                format = FormatSeconds(s);
+            }
+
+            if (minute == 1)
+            {
+                if (second == 0)
                 {
-                    formatDuration = "1 second";
+                    format = "1 minute";
                 }
                 else
                 {
-                    formatDuration = $"{s} seconds";
+                    format = $"{minute} minute and {FormatSeconds(second)}";
                 }
             }
 
-            if (s <= 360 && s >= 60)
+            return format;
+        }
+
+        private string FormatSeconds(int s)
+        {
+            string formatDuration;
+            if (s == 1)
             {
-                if (s == 60)
-                    formatDuration = "1 minute";
-                else
-                {
-                    var second = s % 60;
-                    var minute = s / 60;
-                    string secFormat;
-                    if (second == 1)
-                    {
-                        secFormat = "1 second";
-                    }
-                    else
-                    {
-                        secFormat = $"{second} seconds";
-                    }
-                    formatDuration = $"{minute} minute and {secFormat}";
-                }
+                formatDuration = "1 second";
+            }
+            else
+            {
+                formatDuration = $"{s} seconds";
             }
 
             return formatDuration;
