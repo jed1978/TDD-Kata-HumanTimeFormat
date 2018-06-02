@@ -7,10 +7,6 @@ namespace HumanTimeFormat
         public string FormatDuration(int s)
         {
             if (s <= 0) return "now";
-            if (s <= 59 && s >= 1)
-            {
-                return ProcessTimeFormat(s, "second");
-            }
            
             var second = s % 60;
             var minute = s / 60;
@@ -50,9 +46,10 @@ namespace HumanTimeFormat
                 format += ProcessTimeFormat(minute, "minute");
             }
 
-            if (second > 0)
+            if (second <= 59 && second >= 1)
             {
-                format += " and " + ProcessTimeFormat(second, "second");
+                if (format != "") format += " and ";
+                format += ProcessTimeFormat(second, "second");
             }
 
             return format;
