@@ -20,13 +20,14 @@ namespace HumanTimeFormat
             
             if (day <= 364 && day >= 1)
             {
-                day = day % 24;
+                hour = hour % 24;
                 format += ProcessTimeFormat(day, "day");
             }
 
             if (hour <= 23 && hour >= 1)
             {
                 minute = minute % 60;
+                if (format != "") format += ", ";
                 format += ProcessTimeFormat(hour, "hour");
             }
 
