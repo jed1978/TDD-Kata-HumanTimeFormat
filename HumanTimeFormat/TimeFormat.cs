@@ -16,7 +16,15 @@ namespace HumanTimeFormat
             var second = s % 60;
             var minute = s / 60;
             var hour = minute / 60;
-            if (hour >= 1)
+            var day = hour / 24;
+            
+            if (day <= 364 && day >= 1)
+            {
+                day = day % 24;
+                format += ProcessTimeFormat(day, "day");
+            }
+
+            if (hour <= 23 && hour >= 1)
             {
                 minute = minute % 60;
                 format += ProcessTimeFormat(hour, "hour");
