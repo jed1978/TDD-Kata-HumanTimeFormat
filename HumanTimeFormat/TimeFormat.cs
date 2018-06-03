@@ -24,10 +24,22 @@
             if (min <= 59 && min >= 1)
             {
                 formattedMin = $"{min} minute";
+                if (min > 1) formattedMin = $"{formattedMin}s";
             }
 
+            if (min > 0)
+            {
+                formattedTime = formattedMin;
+                if (sec > 0)
+                {
+                    formattedTime += " and " + formattedSec;
+                }
+            }
+            else
+            {
+                formattedTime = formattedSec;
+            }
 
-            formattedTime = formattedMin + formattedSec;
             return formattedTime;
         }
     }
