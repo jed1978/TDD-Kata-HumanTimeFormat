@@ -44,5 +44,12 @@ namespace HumanTimeFormat.UnitTests
             var expected = "2 seconds";
             ShouldBe(2, expected);
         }
+
+        [Test]
+        public void Test_60_Return_1_minute()
+        {
+            var expected = "1 minute";
+            ShouldBe(60, expected);
+        }
     }
 }

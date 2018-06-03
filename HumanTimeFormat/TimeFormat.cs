@@ -9,9 +9,25 @@
                 return "now";
             }
 
-            var formattedTime = $"{s} second";
-            if (s > 1) formattedTime = $"{formattedTime}s";
+            var formattedTime = "";
+            var formattedSec = "";
+            var formattedMin = "";
+            var sec = s % 60;
+            var min = s / 60;
 
+            if (sec <= 59 && sec >= 1)
+            {
+                formattedSec = $"{sec} second";
+                if (sec > 1) formattedSec = $"{formattedSec}s";
+            }
+
+            if (min <= 59 && min >= 1)
+            {
+                formattedMin = $"{min} minute";
+            }
+
+
+            formattedTime = formattedMin + formattedSec;
             return formattedTime;
         }
     }
