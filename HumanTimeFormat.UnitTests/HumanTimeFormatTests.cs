@@ -20,6 +20,13 @@ namespace HumanTimeFormat.UnitTests
             actual.ShouldBeEqualTo(expected);
         }
 
-        
+        [Test]
+        public void Test_1_Return_1_second()
+        {
+            var expected = "1 second";
+            var humanTimeFormat = new TimeFormat();
+            var actual = humanTimeFormat.FormatDuration(1);
+            actual.ShouldBeEqualTo(expected);
+        }
     }
 }

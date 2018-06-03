@@ -4,7 +4,14 @@
     {
         public string FormatDuration(int s)
         {
-            return "now";
+            if (s == 0)
+            {
+                return "now";
+            }
+            else
+            {
+                return "1 second";
+            }
         }
     }
 }
