@@ -8,10 +8,11 @@
             {
                 return "now";
             }
-            else
-            {
-                return "1 second";
-            }
+
+            var formattedTime = $"{s} second";
+            if (s > 1) formattedTime = $"{formattedTime}s";
+
+            return formattedTime;
         }
     }
 }
