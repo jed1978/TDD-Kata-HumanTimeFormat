@@ -29,7 +29,9 @@
             
             if (min > 0)
             {
+                if (hour > 0) formattedTime += ", ";
                 formattedTime += formattedMin;
+
                 if (sec > 0)
                 {
                     formattedTime += " and " + formattedSec;
@@ -37,6 +39,8 @@
             }
             else
             {
+                if (sec > 0)
+                    if (hour > 0) formattedTime += " and ";
                 formattedTime += formattedSec;
             }
             return formattedTime;
