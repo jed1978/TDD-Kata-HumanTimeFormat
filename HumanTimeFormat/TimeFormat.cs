@@ -15,17 +15,8 @@
             var sec = s % 60;
             var min = s / 60;
 
-            if (sec <= 59 && sec >= 1)
-            {
-                formattedSec = $"{sec} second";
-                if (sec > 1) formattedSec = $"{formattedSec}s";
-            }
-
-            if (min <= 59 && min >= 1)
-            {
-                formattedMin = $"{min} minute";
-                if (min > 1) formattedMin = $"{formattedMin}s";
-            }
+            formattedSec = GetFormattedTime(sec, "second");
+            formattedMin = GetFormattedTime(min, "minute");
 
             if (min > 0)
             {
@@ -41,6 +32,18 @@
             }
 
             return formattedTime;
+        }
+
+        private static string GetFormattedTime(int time, string timeUnit)
+        {
+            string formattedSec="";
+            if (time <= 59 && time >= 1)
+            {
+                formattedSec = $"{time} {timeUnit}";
+                if (time > 1) formattedSec = $"{formattedSec}s";
+            }
+
+            return formattedSec;
         }
     }
 }
