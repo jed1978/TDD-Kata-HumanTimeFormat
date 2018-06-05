@@ -79,5 +79,19 @@ namespace HumanTimeFormat.UnitTests
             var expected = "2 days, 2 minutes and 1 second";
             ShouldBe(172921, expected);
         }
+
+        [Test]
+        public void Test_31536000_Return_1_year()
+        {
+            var expected = "1 year";
+            ShouldBe(31536000, expected);
+        }
+
+        [Test]
+        public void Test_31536121_Return_1_year_2_minutes_and_1_second()
+        {
+            var expected = "1 year, 2 minutes and 1 second";
+            ShouldBe(31536121, expected);
+        }
     }
 }

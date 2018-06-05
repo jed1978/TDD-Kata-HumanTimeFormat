@@ -12,9 +12,7 @@ namespace HumanTimeFormat
             if (s == 0) return "now";
 
             var formattedTime = "";
-
             var formattedTimeUnit = GetFormattedTimeWithUnit(s);
-
             var formattedWithPunctuation = ProcessPunctuationMark(formattedTimeUnit);
 
             foreach (var t in formattedWithPunctuation)
@@ -42,7 +40,7 @@ namespace HumanTimeFormat
         private static List<string> GetFormattedTimeWithUnit(int s)
         {
             var times = ConvertDuration(s);
-            var timeUnit = new[] {"second", "minute", "hour", "day"};
+            var timeUnit = new[] {"second", "minute", "hour", "day", "year"};
             var formattedTimeUnit = new List<string>();
 
             for (int i = 0; i < times.Length; i++)
@@ -62,7 +60,9 @@ namespace HumanTimeFormat
             if (hour > 0) min = min % 60;
             var day = hour / 24;
             if (day > 0) hour = hour % 24;
-            var convertDuration = new []{sec, min, hour, day};
+            var year = day / 365;
+            if (year > 0) day = day % 365;
+            var convertDuration = new[] {sec, min, hour, day, year};
             return convertDuration;
         }
 
@@ -77,8 +77,5 @@ namespace HumanTimeFormat
 
             return formattedSec;
         }
-
     }
-
-    
 }
