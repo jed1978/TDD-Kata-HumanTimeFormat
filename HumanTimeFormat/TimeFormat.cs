@@ -9,37 +9,26 @@ namespace HumanTimeFormat
     {
         public string FormatDuration(int s)
         {
-            if (s == 0)
-            {
-                return "now";
-            }
+            if (s == 0) return "now";
 
             var formattedTime = "";
-            var formattedSec = "";
-            var formattedMin = "";
-            var formattedHour = "";
-            string formattedDay = "";
 
-            var sec = s % 60;
-            var min = s / 60;
-            var hour = min / 60;
-            if (hour > 0) min = min % 60;
-            var day = hour / 24;
-            if (day > 0) hour = hour % 24;
+            var formattedTimeUnit = GetFormattedTimeWithUnit(s);
 
-            var formattedTimeUnit = new List<string>();
-            formattedSec = GetFormattedTime(sec, "second");
-            formattedMin = GetFormattedTime(min, "minute");
-            formattedHour = GetFormattedTime(hour, "hour");
-            formattedDay = GetFormattedTime(day, "day");
-            if (formattedSec != "") formattedTimeUnit.Add(formattedSec);
-            if (formattedMin != "") formattedTimeUnit.Add(formattedMin);
-            if (formattedHour != "") formattedTimeUnit.Add(formattedHour);
-            if (formattedDay != "") formattedTimeUnit.Add(formattedDay);
-            
+            var formattedWithPunctuation = ProcessPunctuationMark(formattedTimeUnit);
 
+            foreach (var t in formattedWithPunctuation)
+            {
+                formattedTime += t;
+            }
+
+            return formattedTime;
+        }
+
+        private static LinkedList<string> ProcessPunctuationMark(List<string> formattedTimeUnit)
+        {
             var timeFormat = new LinkedList<string>();
-             
+
             for (int i = 0; i < formattedTimeUnit.Count; i++)
             {
                 if (i > 1) timeFormat.AddFirst(", ");
@@ -47,12 +36,34 @@ namespace HumanTimeFormat
                 timeFormat.AddFirst(formattedTimeUnit[i]);
             }
 
-            foreach (var t in timeFormat)
+            return timeFormat;
+        }
+
+        private static List<string> GetFormattedTimeWithUnit(int s)
+        {
+            var times = ConvertDuration(s);
+            var timeUnit = new[] {"second", "minute", "hour", "day"};
+            var formattedTimeUnit = new List<string>();
+
+            for (int i = 0; i < times.Length; i++)
             {
-                formattedTime += t;
+                var time = GetFormattedTime(times[i], timeUnit[i]);
+                if (time != "") formattedTimeUnit.Add(GetFormattedTime(times[i], timeUnit[i]));
             }
 
-            return formattedTime;
+            return formattedTimeUnit;
+        }
+
+        private static int[] ConvertDuration(int s)
+        {
+            var sec = s % 60;
+            var min = s / 60;
+            var hour = min / 60;
+            if (hour > 0) min = min % 60;
+            var day = hour / 24;
+            if (day > 0) hour = hour % 24;
+            var convertDuration = new []{sec, min, hour, day};
+            return convertDuration;
         }
 
         private static string GetFormattedTime(int time, string timeUnit)
