@@ -93,5 +93,12 @@ namespace HumanTimeFormat.UnitTests
             var expected = "1 year, 2 minutes and 1 second";
             ShouldBe(31536121, expected);
         }
+
+        [Test]
+        public void Test_101956166_Return_3_years_85_days_1_hour_9_minutes_and_26_seconds()
+        {
+            var expected = "3 years, 85 days, 1 hour, 9 minutes and 26 seconds";
+            ShouldBe(101956166, expected);
+        }
     }
 }

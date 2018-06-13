@@ -41,12 +41,13 @@ namespace HumanTimeFormat
         {
             var times = ConvertDuration(s);
             var timeUnit = new[] {"second", "minute", "hour", "day", "year"};
+            var timeUnitLimit = new[] {59, 59, 23, 364, 99999};
             var formattedTimeUnit = new List<string>();
 
             for (int i = 0; i < times.Length; i++)
             {
-                var time = GetFormattedTime(times[i], timeUnit[i]);
-                if (time != "") formattedTimeUnit.Add(GetFormattedTime(times[i], timeUnit[i]));
+                var time = GetFormattedTime(times[i], timeUnit[i], timeUnitLimit[i]);
+                if (time != "") formattedTimeUnit.Add(time);
             }
 
             return formattedTimeUnit;
@@ -66,14 +67,15 @@ namespace HumanTimeFormat
             return convertDuration;
         }
 
-        private static string GetFormattedTime(int time, string timeUnit)
+        private static string GetFormattedTime(int time, string timeUnit, int upperLimit)
         {
             string formattedSec = "";
-            if (time <= 59 && time >= 1)
+            if (time <= upperLimit && time >= 1)
             {
                 formattedSec = $"{time} {timeUnit}";
                 if (time > 1) formattedSec = $"{formattedSec}s";
             }
+
 
             return formattedSec;
         }
